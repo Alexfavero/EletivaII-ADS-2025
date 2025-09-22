@@ -84,4 +84,70 @@ class PrimeiraController extends Controller
         $media = ($valor1 + $valor2 + $valor3) / 3;
         return "Média = " . $media;
     }
+
+    //ex6
+    public function exercicio6()
+    {
+        return view("exercicio6");
+    }
+
+    public function respExercicio6(Request $request)
+    {
+        $c = $request->valor1;
+
+        $f = ($c * (9 / 5)) + 32;
+        return $c . " Cº equivale a " . $f . " Fº. ";
+    }
+    //ex7
+    public function exercicio7()
+    {
+        return view("exercicio7");
+    }
+
+    public function respExercicio7(Request $request)
+    {
+        $f = $request->valor1;
+
+        $c = ($f - 32) * 5 / 9;
+        return $f . " Fº equivale a " . $c . " Cº. ";
+    }
+    //ex8
+    public function exercicio8()
+    {
+        return view("exercicio8");
+    }
+
+    public function respExercicio8(Request $request)
+    {
+        $altura = $request->valor1;
+        $base = $request->valor2;
+        $area = ($altura * $base) / 2;
+        return "Area do triângulo " . $area;
+    }
+    //ex9
+    public function exercicio9()
+    {
+        return view("exercicio9");
+    }
+
+    public function respExercicio9(Request $request)
+    {
+        $raio = $request->valor1;
+        $pi = M_PI;
+        $area = $pi * ($raio ** 2);
+        return "Area do círculo " . $area;
+    }
+    //ex10
+    public function exercicio10()
+    {
+        return view("exercicio10");
+    }
+
+    public function respExercicio10(Request $request)
+    {
+        $altura = $request->valor1;
+        $largura = $request->valor2;
+        $perimetro = (2 * $altura) + (2 * $largura);
+        return "Perimetro do retângulo " . $perimetro;
+    }
 }
