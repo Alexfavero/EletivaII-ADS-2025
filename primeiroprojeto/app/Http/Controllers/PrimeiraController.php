@@ -241,4 +241,33 @@ class PrimeiraController extends Controller
                 break;
         }
     }
+    //ex16
+    public function exercicio16()
+    {
+        return view("exercicio16");
+    }
+
+    public function respExercicio16(Request $request)
+    {
+        $preco = $request->valor1;
+        $porcentagem = $request->valor2;
+        $desconto = $preco * ($porcentagem / 100);
+        $resultado = $preco - $desconto;
+        return "{$preco}R$ - {$porcentagem}% = {$resultado} R$";
+    }
+    //ex17
+    public function exercicio17()
+    {
+        return view("exercicio17");
+    }
+
+    public function respExercicio17(Request $request)
+    {
+        $capital = $request->valor1;
+        $taxa = $request->valor2;
+        $taxaPorcent = $taxa / 100;
+        $periodo = $request->valor3;
+        $jurosSimples = $capital * $taxaPorcent * $periodo;
+        return "Juros simples : {$jurosSimples} ";
+    }
 }
