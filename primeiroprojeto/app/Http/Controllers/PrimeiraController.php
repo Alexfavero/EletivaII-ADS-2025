@@ -270,4 +270,49 @@ class PrimeiraController extends Controller
         $jurosSimples = $capital * $taxaPorcent * $periodo;
         return "Juros simples : {$jurosSimples} ";
     }
+    //ex18
+    public function exercicio18()
+    {
+        return view("exercicio18");
+    }
+
+    public function respExercicio18(Request $request)
+    {
+        $capital = $request->valor1;
+        $taxa = $request->valor2;
+        $taxaPorcent = $taxa / 100;
+        $periodo = $request->valor3;
+        $montante = $capital * ((1 + $taxaPorcent) ** $periodo);
+        $montanteFormatado = number_format($montante, 2, ',', '.');;
+        return "Montante : {$montanteFormatado} R$";
+    }
+    //ex19
+    public function exercicio19()
+    {
+        return view("exercicio19");
+    }
+
+    public function respExercicio19(Request $request)
+    {
+        $dia = $request->valor1;
+        $horas = $dia * 24;
+        $minutos = $horas * 60;
+        $segundos = $minutos * 60;
+        return $dia > 1
+            ? "{$dia} dias equivalem a {$horas}h, {$minutos}m, {$segundos}s"
+            : "{$dia} dia equivale a {$horas}h, {$minutos}m, {$segundos}s";
+    }
+    //ex20
+    public function exercicio20()
+    {
+        return view("exercicio20");
+    }
+
+    public function respExercicio20(Request $request)
+    {
+        $distancia = $request->valor1;
+        $tempo = $request->valor2;
+        $vm = $distancia / $tempo;
+        return "A velocidade média é de {$vm}";
+    }
 }
