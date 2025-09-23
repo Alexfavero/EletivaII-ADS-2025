@@ -150,4 +150,95 @@ class PrimeiraController extends Controller
         $perimetro = (2 * $altura) + (2 * $largura);
         return "Perimetro do retângulo " . $perimetro;
     }
+
+    //ex11
+    public function exercicio11()
+    {
+        return view("exercicio11");
+    }
+
+    public function respExercicio11(Request $request)
+    {
+
+        $raio = $request->valor1;
+        $pi = M_PI;
+        $area = 2 * $pi * $raio;
+        return "Perimetro do círculo " . $area;
+    }
+    //ex12
+    public function exercicio12()
+    {
+        return view("exercicio12");
+    }
+
+    public function respExercicio12(Request $request)
+    {
+        $base = $request->valor1;
+        $expoente = $request->valor2;
+        $resultado = $base ** $expoente;
+        return "{$base} ^ {$expoente} = {$resultado} ";
+    }
+    //ex13
+    public function exercicio13()
+    {
+        return view("exercicio13");
+    }
+
+    public function respExercicio13(Request $request)
+    {
+        $metro = $request->valor1;
+        $centimetro = $metro * 100;
+        return "{$metro}m = {$centimetro}cm";
+    }
+    //ex14
+    public function exercicio14()
+    {
+        return view("exercicio14");
+    }
+
+    public function respExercicio14(Request $request)
+    {
+        $km = $request->valor1;
+        $milhas = $km * 0.621371;
+        return "{$km}km = {$milhas}milhas";
+    }
+    //ex15
+    public function exercicio15()
+    {
+        return view("exercicio15");
+    }
+
+    public function respExercicio15(Request $request)
+    {
+        $peso = $request->valor1;
+        $altura = $request->valor2;
+        $imc = $peso / ($altura ** 2);
+        $imcFormatado = number_format($imc, 2);
+
+        switch (true) {
+            case ($imc < 18.5):
+                echo "Seu IMC é $imcFormatado e sua classificação é: Abaixo do peso";
+                break;
+
+            case ($imc >= 18.5 && $imc < 25):
+                echo "Seu IMC é $imcFormatado e sua classificação é: Peso normal";
+                break;
+
+            case ($imc >= 25 && $imc < 30):
+                echo "Seu IMC é $imcFormatado e sua classificação é: Sobrepeso";
+                break;
+
+            case ($imc >= 30 && $imc < 35):
+                echo "Seu IMC é $imcFormatado e sua classificação é: Obesidade grau I";
+                break;
+
+            case ($imc >= 35 && $imc < 40):
+                echo "Seu IMC é $imcFormatado e sua classificação é: Obesidade grau II";
+                break;
+
+            default:
+                echo "Seu IMC é $imcFormatado e sua classificação é: Obesidade grau III (grave)";
+                break;
+        }
+    }
 }
